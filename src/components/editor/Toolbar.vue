@@ -1,6 +1,7 @@
 <template>
-    <div class="toolbar">
+<div class="rovlin-editor-toolbar">
 
+    <div class="toolbar">
         <!-- Existing Formatting Buttons -->
         <button type="button" @click="execCommand('bold')">
             <i class="bi bi-type-bold"></i>
@@ -66,10 +67,11 @@
             <i class="bi bi-image"></i>
         </button>
     </div>
+</div>
 </template>
 <script>
 export default {
-    name: 'RovlinEditorToolbar',
+    name: 'Toolbar',
     props: {
         msg: String
     },

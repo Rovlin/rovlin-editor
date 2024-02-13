@@ -1,22 +1,22 @@
 <template>
-    <div class="editor">
-        <RovlinEditorToolbar />
-        <div class="content" contenteditable="true" @input="updateContent">
+    <div class="rovlin-editor">
+        <Toolbar />
+        <div class="rovlin-editor-content" contenteditable="true" @input="updateContent">
             <!-- This is where the editable content will go -->
         </div>
     </div>
 </template>
 
 <script>
-import RovlinEditorToolbar from './Toolbar.vue';
+import Toolbar from './Toolbar.vue';
 
 export default {
-    name: 'RovlinEditor',
+    name: 'Text-Editor',
     props: {
         msg: String
     },
     components: {
-        RovlinEditorToolbar
+        Toolbar
     },
     data() {
         return {
@@ -32,9 +32,4 @@ export default {
 </script>
 
 <style scoped>
-.editor .content {
-    border: 1px solid #ccc;
-    min-height: 200px;
-    padding: 8px;
-}
 </style>
