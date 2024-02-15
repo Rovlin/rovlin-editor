@@ -8,7 +8,6 @@ function install (app: App) {
   }
 }
 
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import './assets/main.scss'
 
 export default { install }

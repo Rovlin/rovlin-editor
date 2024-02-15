@@ -1,35 +1,44 @@
 <template>
     <div class="rovlin-editor">
-        <Toolbar />
+        
+        <Toolbar :toolbarConfig="toolbarConfig"/>
+
         <div class="rovlin-editor-content" contenteditable="true" @input="updateContent">
-            <!-- This is where the editable content will go -->
+            <!--  Editable Div -->
         </div>
     </div>
 </template>
 
 <script>
 import Toolbar from './Toolbar.vue';
+import { TOOLBAR_DEFAULT,finalToolbar } from "../../helper/toolbar/toolbarConfig.ts"
 
 export default {
     name: 'Text-Editor',
     props: {
-        msg: String
+        msg: String,
+        toolbar: {
+            type: Object,
+            default: TOOLBAR_DEFAULT
+        }
     },
     components: {
         Toolbar
     },
     data() {
         return {
-            content: ''
+            content: '',
+            toolbarConfig:{}
         };
     },
+    
     methods: {
         updateContent(event) {
             this.content = event.target.innerHTML;
         }
+    },
+    created() {
+        this.toolbarConfig =  finalToolbar(this.toolbar);
     }
 }
 </script>
-
-<style scoped>
-</style>
