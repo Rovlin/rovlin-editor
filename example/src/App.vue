@@ -1,14 +1,18 @@
 <template>
-  <Editor/>
+  <div>
+    <DraggableEditor />
+    <Editor />
+  </div>
 </template>
 
 
 <script >
-import { Editor } from '../../src/index.ts';
+import { Editor, DraggableEditor } from '../../src';
 
 export default {
   components: {
-    Editor
+    Editor,
+    DraggableEditor
   }
 }
 
