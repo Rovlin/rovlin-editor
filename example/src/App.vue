@@ -1,7 +1,6 @@
 <template>
   <div>
     <DraggableEditor />
-    <Editor />
   </div>
 </template>
 

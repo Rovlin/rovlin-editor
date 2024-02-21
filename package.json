@@ -3,9 +3,7 @@
   "version": "0.0.4",
   "scripts": {
     "build": "rimraf dist && vue-tsc && vite build",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "cd example && vite"
   },
   "peerDependencies": {
     "primeflex": "^3.3.1",

@@ -5,7 +5,7 @@
             <h3>Elements</h3>
         </div>
         <div class="rovlin-draggable-block-body">
-            <div class="element" v-for="(element,index) in elements" :key="index" :draggable="true">
+            <div class="element" v-for="(element,index) in elements" :key="index" :draggable="true"    @dragstart="dragStart($event, element)">
                 <button type="button" @click="addElement(element)">
                     <i :class="element.icon"></i>
                 </button>
@@ -93,6 +93,9 @@ export default {
     methods: {
         addElement(element) {
             this.$emit('addElement', element);
+        },
+        dragStart(event, element) {
+            event.dataTransfer.setData('element', JSON.stringify(element));
         }
     }
 }
