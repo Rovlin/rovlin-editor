@@ -36,4 +36,19 @@ export const ElementConfig = {
             content:'Button'
         }
     },
+    'image':{
+        type:'image',
+        config:{
+            styles:{
+                container:{
+                    justifyContent:'center',
+                },
+                image:{
+                    height:"250px",
+                    width:"250px"
+                },
+            },
+            src:'https://active-asics.de/wp-content/plugins/breedr/assets/no-image-available.png'
+        }
+    },
 }

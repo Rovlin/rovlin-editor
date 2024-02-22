@@ -11,6 +11,7 @@
                             @update:element="updateElement($event)" />
                         <ButtonElement v-if="element.type === 'button'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
+                        <ImageElement v-if="element.type === 'image'" :element="element" :ref="element.id" />
                     </BlockBuilder>
                 </div>
             </div>
@@ -29,6 +30,7 @@
 <script>
 import TextElement from './elements/TextElement.vue';
 import ButtonElement from './elements/ButtonElement.vue';
+import ImageElement from './elements/ImageElement.vue';
 import DraggableElement from './DraggableElement.vue';
 import NoElement from './elements/NoElement.vue';
 import { getShortId } from '../../helper/CommonHelper';
@@ -40,7 +42,8 @@ export default {
         DraggableElement,
         ButtonElement,
         NoElement,
-        TextElement
+        TextElement,
+        ImageElement
     },
     data() {
         return {

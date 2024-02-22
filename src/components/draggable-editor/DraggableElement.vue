@@ -19,9 +19,6 @@ export default {
     props: {
         element: Object
     },
-    mounted() {
-        console.log("this is the element --->",this.element);
-    },
     data() {
         return {
             elements: [
