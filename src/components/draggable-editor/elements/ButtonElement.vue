@@ -1,9 +1,11 @@
 <template>
-        <div style="width:100%" class="rovlin-editor-text-element">
+        <div style="width:100%" class="rovlin-editor-button-element">
             <!-- Ref Element -->
             <div style="padding:10px">
-                <div class="w-100 rounded-5" :style="element.config.styles">
-                    <p style="margin:0"  @input="updateContent" contenteditable="true">{{ content }}</p>
+                <div :style="element.config.styles.container">
+                    <div  :style="element.config.styles.button" style="display: inline-block;" contenteditable="true">
+                        <span @input="updateContent">{{ content }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -11,7 +13,7 @@
 
 <script>
 export default {
-    name: 'TextElement',
+    name: 'ButtonElement',
     props: {
         element: Object,
     },
@@ -33,7 +35,7 @@ export default {
 
 <style scoped>
 
-.rovlin-editor-text-element :focus-visible , .rovlin-editor-text-element :hover {
+.rovlin-editor-button-element :focus-visible , .rovlin-editor-button-element :hover  {
     outline: none !important;
 }
 

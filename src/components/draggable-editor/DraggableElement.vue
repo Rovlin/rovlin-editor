@@ -2,14 +2,12 @@
 <template>
     <div class="rovlin-draggable-block">
         <div class="rovlin-draggable-block-header">
-            <h3>Elements</h3>
+            <h3 class="rovlin-draggable-block-heading">Elements</h3>
         </div>
         <div class="rovlin-draggable-block-body">
-            <div class="element" v-for="(element,index) in elements" :key="index" :draggable="true"    @dragstart="dragStart($event, element)">
-                <button type="button" @click="addElement(element)">
-                    <i :class="element.icon"></i>
-                </button>
-                <div class="content">{{element.name}}</div>
+            <div class="element" v-for="(element,index) in elements" :key="index" :draggable="true"  @click="addElement(element)"   @dragstart="dragStart($event, element)">
+                    <i :class="element.icon" ></i>
+                    <div class="content">{{element.name}}</div>
             </div>
         </div>
     </div>
@@ -55,7 +53,7 @@ export default {
                     type: 'button',
                     name: 'button',
                     content: 'This is a button element',
-                    icon: 'bi bi-link-45deg'
+                    icon: 'bi bi-square'
                 },
                 {
                     type: 'link',
@@ -102,6 +100,12 @@ export default {
 </script>
 
 <style scoped>
+
+    .rovlin-draggable-block-heading {
+        font-size: 19px;
+        font-weight: 600;
+        color: #262626;
+    }
     .rovlin-draggable-block {
         padding: 10px;
     }
@@ -111,33 +115,40 @@ export default {
 
     .rovlin-draggable-block .rovlin-draggable-block-body {
         display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
-        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
     }
 
     .rovlin-draggable-block .rovlin-draggable-block-body .element {
-        width: 100%;
-        height: 150px;
+        min-width: 94px;
+        max-width: 94px;
+        height: 110px;
+        line-height: 20px;
         text-align: center;
-        cursor: pointer;
-    }
-
-    .rovlin-draggable-block .rovlin-draggable-block-body .element button {
-        width: 100%;
-        height: 130px;
-        border: none;
+        font-size: 12px;
+        font-weight: 500;
+        border-radius: 4px;
         background-color: #f8f9fa;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         cursor: pointer;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .rovlin-draggable-block .rovlin-draggable-block-body .element button i {
-        font-size: 65px;
-        color: #000;
+    .rovlin-draggable-block .rovlin-draggable-block-body .element:hover{
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    }
+
+    .rovlin-draggable-block .rovlin-draggable-block-body .element  i {
+        font-size: 32px !important;
+        color: #262626;
     }
 
     .rovlin-draggable-block .rovlin-draggable-block-body .element .content {
-        font-size: 25px;
+        font-size: 13px;
+        margin-top: 8px;
         font-style: italic;
         text-transform: capitalize;
     }

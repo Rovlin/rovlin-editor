@@ -12,5 +12,28 @@ export const ElementConfig = {
             },
             content:'Text'
         }
-    }
+    },
+    'button':{
+        type:'button',
+        config:{
+            styles:{
+                container:{
+                    textAlign:'center',
+                },
+                button:{
+                    color:'white',
+                    fontSize:'15px',
+                    fontWeight:400,
+                    padding:'9px 20px 10px',
+                    fontStyle:'normal',
+                    textDecoration:'none',
+                    textAlign:'center',
+                    backgroundColor:'#35bfbf',
+                    borderColor:'black',
+                    borderRadius:'4px',
+                },
+            },
+            content:'Button'
+        }
+    },
 }
