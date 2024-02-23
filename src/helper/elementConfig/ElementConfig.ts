@@ -13,6 +13,21 @@ export const ElementConfig = {
             content:'Text'
         }
     },
+    'link':{
+        type:'link',
+        config:{
+            styles:{
+                color:'black',
+                fontSize:'15px',
+                fontWeight:400,
+                fontStyle:'normal',
+                textDecoration:'none',
+                textAlign:'left'
+            },
+            content:'Link',
+            link:''
+        }
+    },
     'button':{
         type:'button',
         config:{

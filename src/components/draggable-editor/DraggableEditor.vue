@@ -7,7 +7,7 @@
                 <div style="width: 100%;" ref="blockElements">
                     <BlockBuilder v-for="(element) in sortedEditorElements" :selected="element.selected" :id="element.id"
                         @block:selected="handleSelectedElement">
-                        <TextElement v-if="element.type === 'text'" :element="element" :ref="element.id"
+                        <TextElement v-if="element.type === 'text' || element.type === 'link'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
                         <ButtonElement v-if="element.type === 'button'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
@@ -80,7 +80,6 @@ export default {
         },
         // update the element in the editorElements
         updateElement(element) {
-            console.log("update Element runs here --->")
             if (this.editorElements[element.id]) {
                 this.editorElements[element.id] = element;
             }

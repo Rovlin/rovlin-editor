@@ -3,7 +3,9 @@
             <!-- Ref Element -->
             <div style="padding:10px">
                 <div class="w-100 rounded-5" :style="element.config.styles">
-                    <p style="margin:0"  @input="updateContent" contenteditable="true">{{ content }}</p>
+                    <p style="margin:0" v-if="element.type === 'text'"  @input="updateContent" contenteditable="true">{{ content }}</p>
+                    <a style="margin:0" v-if="element.type === 'link'" :href="element.config.link"  
+                        @input="updateContent" contenteditable="true">{{ content }}</a>
                 </div>
             </div>
         </div>
