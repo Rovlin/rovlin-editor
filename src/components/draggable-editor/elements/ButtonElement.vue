@@ -3,8 +3,8 @@
             <!-- Ref Element -->
             <div style="padding:10px">
                 <div :style="element.config.styles.container">
-                    <div  :style="element.config.styles.button" style="display: inline-block;" contenteditable="true">
-                        <span @input="updateContent">{{ content }}</span>
+                    <div  :style="element.config.styles.button" style="display: inline-block;" @input="updateContent" contenteditable="true">
+                        <span >{{ content }}</span>
                     </div>
                 </div>
             </div>

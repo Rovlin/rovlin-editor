@@ -36,6 +36,23 @@ export const ElementConfig = {
             content:'Button'
         }
     },
+    'list':{
+        type:'list',
+        config:{
+            styles:{
+                container:{
+                    textAlign:'left',
+                },
+                list:{
+                    color:'black',
+                    fontSize:'15px',
+                    fontWeight:400,
+                    fontStyle:'normal',
+                },
+            },
+            content:['List Item 1','List Item 2','List Item 3']
+        }
+    },
     'image':{
         type:'image',
         config:{
@@ -49,6 +66,38 @@ export const ElementConfig = {
                 },
             },
             src:'https://active-asics.de/wp-content/plugins/breedr/assets/no-image-available.png'
+        }
+    },
+    'audio':{
+        type:'audio',
+        config:{
+            styles:{
+                container:{
+                    justifyContent:'center',
+                },
+                audio:{
+                    height:"54px",
+                    width:"300px"
+                },
+            },
+            src:'',
+            fileName:""
+        }
+    },
+    'video':{
+        type:'video',
+        config:{
+            styles:{
+                container:{
+                    justifyContent:'center',
+                },
+                video:{
+                    height:"300px",
+                    width:"450px"
+                },
+            },
+            src:'',
+            fileName:""
         }
     },
 }

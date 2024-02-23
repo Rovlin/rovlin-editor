@@ -12,22 +12,30 @@
                         <ButtonElement v-if="element.type === 'button'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
                         <ImageElement v-if="element.type === 'image'" :element="element" :ref="element.id" />
+                        <AudioElement v-if="element.type === 'audio'" :element="element" :ref="element.id"/>
+                        <VideoElement v-if="element.type === 'video'" :element="element" :ref="element.id"/>
+                        <ListElement v-if="element.type === 'list'" :element="element" :ref="element.id"
+                             @update:element="updateElement($event)"/>
                     </BlockBuilder>
                 </div>
             </div>
         </div>
 
-        <div class="rovlin-elements">
+        <div class="rovlin-elements" ref="sidebarPanel">
             <DraggableElement v-if="!selectedElementId" />
-            <div v-if="selectedElementId">
-                id: {{ selectedElementId }}
-                <button @click="closeSelectedElement">Close</button>
-            </div>
+            <ConfigPanel v-if="selectedElementId" 
+                :element="editorElements[selectedElementId]" 
+                :closeSelectedElement="closeSelectedElement"
+                @update:element="updateElement($event)" 
+                :deleteElement="deleteElement"
+            />
         </div>
 
     </div>
 </template>
 <script>
+import VideoElement from './elements/VideoElement.vue';
+import AudioElement from './elements/AudioElement.vue';
 import TextElement from './elements/TextElement.vue';
 import ButtonElement from './elements/ButtonElement.vue';
 import ImageElement from './elements/ImageElement.vue';
@@ -36,6 +44,8 @@ import NoElement from './elements/NoElement.vue';
 import { getShortId } from '../../helper/CommonHelper';
 import { ElementConfig } from '../../helper/elementConfig/ElementConfig';
 import BlockBuilder from './block-builder-layer/BlockBuilder.vue';
+import ConfigPanel from './config-panel/ConfigPanel.vue';
+import ListElement from './elements/ListElement.vue';
 export default {
     components: {
         BlockBuilder,
@@ -43,7 +53,11 @@ export default {
         ButtonElement,
         NoElement,
         TextElement,
-        ImageElement
+        ImageElement,
+        ConfigPanel,
+        AudioElement,
+        VideoElement,
+        ListElement
     },
     data() {
         return {
@@ -59,30 +73,45 @@ export default {
             this.addNewElement(item);
         },
         addNewElement(item) {
+            if(!ElementConfig[item.type]) return
             const newId = getShortId();
             const order = Object.keys(this.editorElements).length;
             this.editorElements[newId] = { ...ElementConfig[item.type], id: newId, order, selected: false };
         },
         // update the element in the editorElements
         updateElement(element) {
+            console.log("update Element runs here --->")
             if (this.editorElements[element.id]) {
                 this.editorElements[element.id] = element;
             }
         },
         // updates the Selected Element
         handleSelectedElement(newId) {
-            console.log("handle Selected Element Runs", newId, this.selectedElementId);
             if(this.selectedElementId) this.editorElements[this.selectedElementId].selected = false;
             this.selectedElementId = newId;
             this.editorElements[newId].selected = true;
         },
         closeSelectedElement() {
-            this.editorElements[this.selectedElementId].selected = false;
+            if(this.editorElements[this.selectedElementId]) 
+                this.editorElements[this.selectedElementId].selected = false;
             this.selectedElementId = null;
         },
         handleClickOutside(event) {
-            if (!this.$refs.blockElements.contains(event.target) && this.selectedElementId) {
-               this.closeSelectedElement();
+
+            if (!this.$refs.blockElements.contains(event.target)
+                && !this.$refs.sidebarPanel.contains(event.target)
+                && this.selectedElementId) {
+                this.closeSelectedElement();
+            }
+        },
+        deleteElement() {
+            if (this.selectedElementId) {
+                delete this.editorElements[this.selectedElementId];
+                this.closeSelectedElement();
+                let order = 0;
+                for (const id in this.editorElements) {
+                    this.editorElements[id].order = order++;
+                }
             }
         }
     },
@@ -97,6 +126,11 @@ export default {
                 console.log('editorElements changed:', newVal);
             },
             deep: true
+        },
+        selectedElementId: {
+            handler(newVal, oldVal) {
+                console.log('selectedElementId changed:', newVal);
+            }
         }
     },
     mounted() {
@@ -134,6 +168,5 @@ export default {
 .rovlin-draggable-editor .rovlin-elements {
     width: 410px;
     border-left: 1px solid #000;
-    padding-left: 10px;
 }
 </style>

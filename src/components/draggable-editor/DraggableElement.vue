@@ -104,7 +104,7 @@ export default {
         color: #262626;
     }
     .rovlin-draggable-block {
-        padding: 10px;
+        padding: 10px 20px;
     }
     .rovlin-draggable-block .rovlin-draggable-block-header {
         text-align: center;
