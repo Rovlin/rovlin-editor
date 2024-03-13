@@ -3,7 +3,8 @@ export const ElementConfig = {
         type:'text',
         config:{
             styles:{
-                color:'black',
+                color: 'black',
+                backgroundColor: 'transparent', // Add backgroundColor property
                 fontSize:'15px',
                 fontWeight:400,
                 fontStyle:'normal',
@@ -17,7 +18,8 @@ export const ElementConfig = {
         type:'link',
         config:{
             styles:{
-                color:'black',
+                color: 'black',
+                backgroundColor: 'transparent',
                 fontSize:'15px',
                 fontWeight:400,
                 fontStyle:'normal',
@@ -36,14 +38,15 @@ export const ElementConfig = {
                     textAlign:'center',
                 },
                 button:{
-                    color:'white',
+                    color: 'white',
+                    backgroundColor: '#35bfbf',
                     fontSize:'15px',
                     fontWeight:400,
                     padding:'9px 20px 10px',
                     fontStyle:'normal',
                     textDecoration:'none',
                     textAlign:'center',
-                    backgroundColor:'#35bfbf',
+                    // backgroundColor:'#35bfbf',
                     borderColor:'black',
                     borderRadius:'4px',
                 },

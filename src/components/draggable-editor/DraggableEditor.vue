@@ -23,10 +23,10 @@
 
         <div class="rovlin-elements" ref="sidebarPanel">
             <DraggableElement v-if="!selectedElementId" />
-            <ConfigPanel v-if="selectedElementId" 
-                :element="editorElements[selectedElementId]" 
+            <ConfigPanel v-if="selectedElementId"
+                :element="editorElements[selectedElementId]"
                 :closeSelectedElement="closeSelectedElement"
-                @update:element="updateElement($event)" 
+                @update:element="updateElement($event)"
                 :deleteElement="deleteElement"
             />
         </div>
@@ -91,7 +91,7 @@ export default {
             this.editorElements[newId].selected = true;
         },
         closeSelectedElement() {
-            if(this.editorElements[this.selectedElementId]) 
+            if(this.editorElements[this.selectedElementId])
                 this.editorElements[this.selectedElementId].selected = false;
             this.selectedElementId = null;
         },
@@ -165,7 +165,7 @@ export default {
 }
 
 .rovlin-draggable-editor .rovlin-elements {
-    width: 410px;
+    width: 610px;
     border-left: 1px solid #000;
 }
 </style>
