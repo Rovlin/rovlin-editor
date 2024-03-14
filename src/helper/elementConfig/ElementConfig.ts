@@ -4,7 +4,7 @@ export const ElementConfig = {
         config:{
             styles:{
                 color: 'black',
-                backgroundColor: 'transparent', // Add backgroundColor property
+                backgroundColor: 'transparent',
                 fontSize:'15px',
                 fontWeight:400,
                 fontStyle:'normal',
@@ -39,19 +39,18 @@ export const ElementConfig = {
                 },
                 button:{
                     color: 'white',
-                    backgroundColor: '#35bfbf',
+                    backgroundColor: '#39bfbf',
                     fontSize:'15px',
                     fontWeight:400,
                     padding:'9px 20px 10px',
                     fontStyle:'normal',
                     textDecoration:'none',
-                    textAlign:'center',
-                    // backgroundColor:'#35bfbf',
                     borderColor:'black',
                     borderRadius:'4px',
                 },
             },
-            content:'Button'
+            content: 'Button'
+
         }
     },
     'list':{
@@ -118,4 +117,25 @@ export const ElementConfig = {
             fileName:""
         }
     },
+    'divider': {
+        type: 'divider',
+        config: {
+            styles: {
+                container: {
+                    borderBottom: '2px solid black'
+                },
+                title: {
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
+                    textAlign: 'center'
+                },
+                icon: {
+                    textAlign: 'center'
+                },
+
+            },
+            title: 'Divider',
+            iconUrl: 'URL_TO_DIVIDER_ICON'
+        }
+    }
 }

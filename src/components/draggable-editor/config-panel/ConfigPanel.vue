@@ -10,13 +10,14 @@
         </div>
 
         <div class="rovlin-editor-config-panel-body">
-          <ButtonPanel :element="element" v-if="element.type == 'button'" @update:element="updateElement($event)"/>
-          <ImagePanel :element="element" v-if="element.type == 'image'"  @update:element="updateElement($event)" />
-          <AudioPanel :element="element" v-if="element.type == 'audio'" @update:element="updateElement($event)"/>
-          <VideoPanel :element="element" v-if="element.type == 'video'" @update:element="updateElement($event)"/>
-          <ListPanel :element="element" v-if="element.type == 'list'" @update:element="updateElement($event)"/>
+            <ButtonPanel :element="element" v-if="element.type == 'button'" @update:element="updateElement($event)" />
+            <ImagePanel :element="element" v-if="element.type == 'image'" @update:element="updateElement($event)" />
+            <AudioPanel :element="element" v-if="element.type == 'audio'" @update:element="updateElement($event)" />
+            <VideoPanel :element="element" v-if="element.type == 'video'" @update:element="updateElement($event)" />
+            <ListPanel :element="element" v-if="element.type == 'list'" @update:element="updateElement($event)" />
+            <DividerPanel :element="element" v-if="element.type == 'divider'" @update:element="updateElement($event)" />
         </div>
-        
+
     </div>
 </template>
 
@@ -26,6 +27,7 @@ import ButtonPanel from "./elements/ButtonPanel.vue";
 import ImagePanel from "./elements/ImagePanel.vue";
 import AudioPanel from "./elements/AudioPanel.vue";
 import ListPanel from "./elements/ListPanel.vue";
+import DividerPanel from "./elements/DividerPanel.vue"
 export default {
   name: 'ConfigPanel',
   props: ['element', 'deleteElement', 'closeSelectedElement'],
@@ -34,7 +36,8 @@ export default {
     ButtonPanel,
     AudioPanel,
     VideoPanel,
-    ListPanel
+      ListPanel,
+
 },
   data() {
     return {

@@ -1,13 +1,13 @@
-
 <template>
     <div class="rovlin-draggable-block">
         <div class="rovlin-draggable-block-header">
             <h3 class="rovlin-draggable-block-heading">Elements</h3>
         </div>
         <div class="rovlin-draggable-block-body">
-            <div class="element" v-for="(element,index) in elements" :key="index" :draggable="true"  @click="addElement(element)"   @dragstart="dragStart($event, element)">
-                    <i :class="element.icon" ></i>
-                    <div class="content">{{element.name}}</div>
+            <div class="element" v-for="(element, index) in elements" :key="index" :draggable="true"
+                @click="addElement(element)" @dragstart="dragStart($event, element)">
+                <i :class="element.icon"></i>
+                <div class="content">{{ element.name }}</div>
             </div>
         </div>
     </div>
@@ -81,6 +81,13 @@ export default {
                     name: 'map',
                     content: 'This is a map element',
                     icon: 'bi bi-geo-alt'
+                },
+                {
+                    type: 'divider',
+                    name: 'divider',
+                    content: 'This is a divider element',
+                    icon: 'bi bi-dash',
+
                 }
             ]
         }
@@ -97,56 +104,57 @@ export default {
 </script>
 
 <style scoped>
+.rovlin-draggable-block-heading {
+    font-size: 19px;
+    font-weight: 600;
+    color: #262626;
+}
 
-    .rovlin-draggable-block-heading {
-        font-size: 19px;
-        font-weight: 600;
-        color: #262626;
-    }
-    .rovlin-draggable-block {
-        padding: 10px 20px;
-    }
-    .rovlin-draggable-block .rovlin-draggable-block-header {
-        text-align: center;
-    }
+.rovlin-draggable-block {
+    padding: 10px 20px;
+}
 
-    .rovlin-draggable-block .rovlin-draggable-block-body {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
+.rovlin-draggable-block .rovlin-draggable-block-header {
+    text-align: center;
+}
 
-    .rovlin-draggable-block .rovlin-draggable-block-body .element {
-        min-width: 94px;
-        max-width: 94px;
-        height: 110px;
-        line-height: 20px;
-        text-align: center;
-        font-size: 12px;
-        font-weight: 500;
-        border-radius: 4px;
-        background-color: #f8f9fa;
-        cursor: pointer;
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.rovlin-draggable-block .rovlin-draggable-block-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
 
-    .rovlin-draggable-block .rovlin-draggable-block-body .element:hover{
-        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-    }
+.rovlin-draggable-block .rovlin-draggable-block-body .element {
+    min-width: 94px;
+    max-width: 94px;
+    height: 110px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .rovlin-draggable-block .rovlin-draggable-block-body .element  i {
-        font-size: 32px !important;
-        color: #262626;
-    }
+.rovlin-draggable-block .rovlin-draggable-block-body .element:hover {
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
 
-    .rovlin-draggable-block .rovlin-draggable-block-body .element .content {
-        font-size: 13px;
-        margin-top: 8px;
-        font-style: italic;
-        text-transform: capitalize;
-    }
+.rovlin-draggable-block .rovlin-draggable-block-body .element i {
+    font-size: 32px !important;
+    color: #262626;
+}
+
+.rovlin-draggable-block .rovlin-draggable-block-body .element .content {
+    font-size: 13px;
+    margin-top: 8px;
+    font-style: italic;
+    text-transform: capitalize;
+}
 </style>

@@ -5,17 +5,19 @@
             <div class="rovlin-editor-main-container" ref="mainContainer">
                 <NoElement v-if="!Object.keys(editorElements).length" />
                 <div style="width: 100%;" ref="blockElements">
-                    <BlockBuilder v-for="(element) in sortedEditorElements" :selected="element.selected" :id="element.id"
-                        @block:selected="handleSelectedElement">
-                        <TextElement v-if="element.type === 'text' || element.type === 'link'" :element="element" :ref="element.id"
-                            @update:element="updateElement($event)" />
+                    <BlockBuilder v-for="(element) in sortedEditorElements" :selected="element.selected"
+                        :id="element.id" @block:selected="handleSelectedElement">
+                        <TextElement v-if="element.type === 'text' || element.type === 'link'" :element="element"
+                            :ref="element.id" @update:element="updateElement($event)" />
                         <ButtonElement v-if="element.type === 'button'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
                         <ImageElement v-if="element.type === 'image'" :element="element" :ref="element.id" />
-                        <AudioElement v-if="element.type === 'audio'" :element="element" :ref="element.id"/>
-                        <VideoElement v-if="element.type === 'video'" :element="element" :ref="element.id"/>
+                        <AudioElement v-if="element.type === 'audio'" :element="element" :ref="element.id" />
+                        <VideoElement v-if="element.type === 'video'" :element="element" :ref="element.id" />
                         <ListElement v-if="element.type === 'list'" :element="element" :ref="element.id"
-                             @update:element="updateElement($event)"/>
+                            @update:element="updateElement($event)" />
+                        <DividerElement v-if="element.type === 'divider'" :element="element" :ref="element.id"
+                            @update:element="updateElement($event)" />
                     </BlockBuilder>
                 </div>
             </div>
@@ -23,12 +25,9 @@
 
         <div class="rovlin-elements" ref="sidebarPanel">
             <DraggableElement v-if="!selectedElementId" />
-            <ConfigPanel v-if="selectedElementId"
-                :element="editorElements[selectedElementId]"
-                :closeSelectedElement="closeSelectedElement"
-                @update:element="updateElement($event)"
-                :deleteElement="deleteElement"
-            />
+            <ConfigPanel v-if="selectedElementId" :element="editorElements[selectedElementId]"
+                :closeSelectedElement="closeSelectedElement" @update:element="updateElement($event)"
+                :deleteElement="deleteElement" />
         </div>
 
     </div>
@@ -46,6 +45,7 @@ import { ElementConfig } from '../../helper/elementConfig/ElementConfig';
 import BlockBuilder from './block-builder-layer/BlockBuilder.vue';
 import ConfigPanel from './config-panel/ConfigPanel.vue';
 import ListElement from './elements/ListElement.vue';
+import DividerElement from './elements/DividerElement.vue';
 export default {
     components: {
         BlockBuilder,
@@ -57,7 +57,8 @@ export default {
         ConfigPanel,
         AudioElement,
         VideoElement,
-        ListElement
+        ListElement,
+        DividerElement
     },
     data() {
         return {
