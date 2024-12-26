@@ -20,6 +20,9 @@
                             @update:element="updateElement($event)" />
                         <FontElement v-if="element.type === 'font'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
+                        <FormElement v-if="element.type === 'form'" :element="element" :ref="element.id"
+                            @update:element="updateElement($event)" />
+
                     </BlockBuilder>
                 </div>
             </div>
@@ -47,6 +50,7 @@ import { ElementConfig } from '../../helper/elementConfig/ElementConfig';
 import BlockBuilder from './block-builder-layer/BlockBuilder.vue';
 import ConfigPanel from './config-panel/ConfigPanel.vue';
 import ListElement from './elements/ListElement.vue';
+import FormElement from './elements/FormElement.vue';
 import DividerElement from './elements/DividerElement.vue';
 import FontElement from './elements/FontElement.vue';
 export default {
@@ -61,6 +65,7 @@ export default {
         AudioElement,
         VideoElement,
         ListElement,
+        FormElement,
         DividerElement,
         FontElement,
     },

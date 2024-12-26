@@ -17,6 +17,7 @@
             <ListPanel :element="element" v-if="element.type == 'list'" @update:element="updateElement($event)" />
             <DividerPanel :element="element" v-if="element.type == 'divider'" @update:element="updateElement($event)" />
             <FontPanel :element="element" v-if="element.type == 'font'" @update:element="updateElement($event)" />
+            <FormPanel v-if="element.type === 'form'" :element="element" @update:element="updateElement($event)" />
         </div>
 
     </div>
@@ -28,6 +29,7 @@ import ButtonPanel from "./elements/ButtonPanel.vue";
 import ImagePanel from "./elements/ImagePanel.vue";
 import AudioPanel from "./elements/AudioPanel.vue";
 import ListPanel from "./elements/ListPanel.vue";
+import FormPanel from "../elements/FormElement.vue";
 import DividerPanel from "./elements/DividerPanel.vue"
 import FontPanel from "./elements/FontPanel.vue";
 export default {
@@ -39,6 +41,7 @@ export default {
     AudioPanel,
     VideoPanel,
       ListPanel,
+      FormPanel,
         DividerPanel,
         FontPanel,
 },
