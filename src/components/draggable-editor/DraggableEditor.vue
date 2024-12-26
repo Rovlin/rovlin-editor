@@ -18,6 +18,8 @@
                             @update:element="updateElement($event)" />
                         <DividerElement v-if="element.type === 'divider'" :element="element" :ref="element.id"
                             @update:element="updateElement($event)" />
+                        <FontElement v-if="element.type === 'font'" :element="element" :ref="element.id"
+                            @update:element="updateElement($event)" />
                     </BlockBuilder>
                 </div>
             </div>
@@ -46,6 +48,7 @@ import BlockBuilder from './block-builder-layer/BlockBuilder.vue';
 import ConfigPanel from './config-panel/ConfigPanel.vue';
 import ListElement from './elements/ListElement.vue';
 import DividerElement from './elements/DividerElement.vue';
+import FontElement from './elements/FontElement.vue';
 export default {
     components: {
         BlockBuilder,
@@ -58,7 +61,8 @@ export default {
         AudioElement,
         VideoElement,
         ListElement,
-        DividerElement
+        DividerElement,
+        FontElement,
     },
     data() {
         return {

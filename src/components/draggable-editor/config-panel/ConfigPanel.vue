@@ -16,6 +16,7 @@
             <VideoPanel :element="element" v-if="element.type == 'video'" @update:element="updateElement($event)" />
             <ListPanel :element="element" v-if="element.type == 'list'" @update:element="updateElement($event)" />
             <DividerPanel :element="element" v-if="element.type == 'divider'" @update:element="updateElement($event)" />
+            <FontPanel :element="element" v-if="element.type == 'font'" @update:element="updateElement($event)" />
         </div>
 
     </div>
@@ -28,6 +29,7 @@ import ImagePanel from "./elements/ImagePanel.vue";
 import AudioPanel from "./elements/AudioPanel.vue";
 import ListPanel from "./elements/ListPanel.vue";
 import DividerPanel from "./elements/DividerPanel.vue"
+import FontPanel from "./elements/FontPanel.vue";
 export default {
   name: 'ConfigPanel',
   props: ['element', 'deleteElement', 'closeSelectedElement'],
@@ -37,7 +39,8 @@ export default {
     AudioPanel,
     VideoPanel,
       ListPanel,
-
+        DividerPanel,
+        FontPanel,
 },
   data() {
     return {
@@ -62,7 +65,7 @@ export default {
 .rovlin-editor-config-panel-header{
     margin: 5px 4px;
     padding: 15px 10px ;
-    border: 1px solid #dee2e6;;
+    border: 1px solid #dee2e6;
     justify-content: space-between;
     align-items: center;
     border-radius: 14px;

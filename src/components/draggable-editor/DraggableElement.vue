@@ -87,7 +87,12 @@ export default {
                     name: 'divider',
                     content: 'This is a divider element',
                     icon: 'bi bi-dash',
-
+                },
+                {
+                    type: 'font',
+                    name: 'font',
+                    content: 'This is a font element',
+                    icon: 'bi bi-fonts',
                 }
             ]
         }

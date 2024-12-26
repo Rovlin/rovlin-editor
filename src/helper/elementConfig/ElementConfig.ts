@@ -137,5 +137,20 @@ export const ElementConfig = {
             title: 'Divider',
             iconUrl: 'URL_TO_DIVIDER_ICON'
         }
-    }
-}
+    },
+  font: {
+    type: "font",
+    config: {
+      styles: {
+        fontFamily: "Arial",
+        fontSize: "16px",
+        fontWeight: 400,
+        fontStyle: "normal",
+        textAlign: "left",
+        color: "black",
+        backgroundColor: "transparent",
+      },
+      content: "This is a font element",
+    },
+  },
+};

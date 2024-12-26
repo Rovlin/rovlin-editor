@@ -15,7 +15,7 @@
 <script>
 
 export default {
-    name: 'ButtonElement',
+    name: 'ListElement',
     props: {
         element: Object,
     },
@@ -46,7 +46,7 @@ export default {
             },
             deep:true
         }
-    
+
     }
 }
 </script>
